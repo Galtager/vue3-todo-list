@@ -8,7 +8,8 @@
         <td>{{ formatDate }}</td>
         <!-- Status -->
         <td>
-            <span class="todo-status">{{ status }}</span>
+            <span class="todo-status" :class="{ 'active': status === 'Active', 'complete': status === 'Completed' }">{{
+                status }}</span>
         </td>
         <!-- Action -->
         <td>
@@ -102,11 +103,18 @@ export default {
 }
 
 .todo-status {
-    background-color: #33ae10;
     border-radius: 30px;
     color: #fff;
     font-size: 12px;
     padding: 3px 10px;
+}
+
+.complete {
+    background-color: #5454e8;
+}
+
+.active {
+    background-color: #33ae10;
 }
 
 .action-bar {
